@@ -18,6 +18,8 @@ A repository dedicated to exploring and implementing Deep Learning and AI concep
 
 This project implements semantic similarity comparison between sentences using transformer-based embeddings.
 
+![Sentence Similarity Analysis](./Encoders/Sentence_Similarity/image.png)
+
 #### Features
 - Utilizes SentenceTransformer with 'all-MiniLM-L6-v2' model
 - Computes pairwise cosine similarities between input sentences
