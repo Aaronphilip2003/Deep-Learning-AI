@@ -1,0 +1,1496 @@
+{
+    "tables": [
+        {
+            "name": "orders",
+            "description": "Store customer order information",
+            "domain": "e-commerce",
+            "columns": [
+                {
+                    "name": "order_id",
+                    "type": "INTEGER",
+                    "description": "Unique identifier for orders"
+                },
+                {
+                    "name": "customer_id",
+                    "type": "INTEGER",
+                    "description": "Reference to customer"
+                },
+                {
+                    "name": "order_date",
+                    "type": "TIMESTAMP",
+                    "description": "When order was placed"
+                },
+                {
+                    "name": "total_amount",
+                    "type": "DECIMAL(10,2)",
+                    "description": "Total order value"
+                },
+                {
+                    "name": "status",
+                    "type": "VARCHAR(20)",
+                    "description": "Order status (pending/shipped/delivered)"
+                }
+            ]
+        },
+        {
+            "name": "products",
+            "description": "Product catalog information",
+            "domain": "e-commerce",
+            "columns": [
+                {
+                    "name": "product_id",
+                    "type": "INTEGER",
+                    "description": "Unique identifier for products"
+                },
+                {
+                    "name": "name",
+                    "type": "VARCHAR(100)",
+                    "description": "Product name"
+                },
+                {
+                    "name": "description",
+                    "type": "TEXT",
+                    "description": "Detailed product description"
+                },
+                {
+                    "name": "price",
+                    "type": "DECIMAL(10,2)",
+                    "description": "Current product price"
+                },
+                {
+                    "name": "category_id",
+                    "type": "INTEGER",
+                    "description": "Reference to product category"
+                }
+            ]
+        },
+        {
+            "name": "inventory",
+            "description": "Product inventory tracking",
+            "domain": "e-commerce",
+            "columns": [
+                {
+                    "name": "inventory_id",
+                    "type": "INTEGER",
+                    "description": "Unique identifier for inventory records"
+                },
+                {
+                    "name": "product_id",
+                    "type": "INTEGER",
+                    "description": "Reference to product"
+                },
+                {
+                    "name": "quantity",
+                    "type": "INTEGER",
+                    "description": "Current stock quantity"
+                },
+                {
+                    "name": "warehouse_id",
+                    "type": "INTEGER",
+                    "description": "Reference to warehouse location"
+                },
+                {
+                    "name": "last_updated",
+                    "type": "TIMESTAMP",
+                    "description": "Last inventory update timestamp"
+                }
+            ]
+        },
+        {
+            "name": "customers",
+            "description": "Customer account information",
+            "domain": "e-commerce",
+            "columns": [
+                {
+                    "name": "customer_id",
+                    "type": "INTEGER",
+                    "description": "Unique identifier for customers"
+                },
+                {
+                    "name": "email",
+                    "type": "VARCHAR(100)",
+                    "description": "Customer email address"
+                },
+                {
+                    "name": "name",
+                    "type": "VARCHAR(100)",
+                    "description": "Customer full name"
+                },
+                {
+                    "name": "join_date",
+                    "type": "DATE",
+                    "description": "When customer joined"
+                },
+                {
+                    "name": "status",
+                    "type": "VARCHAR(20)",
+                    "description": "Account status (active/inactive)"
+                }
+            ]
+        },
+        {
+            "name": "employees",
+            "description": "Employee personal and work information",
+            "domain": "hr",
+            "columns": [
+                {
+                    "name": "employee_id",
+                    "type": "INTEGER",
+                    "description": "Unique identifier for employees"
+                },
+                {
+                    "name": "first_name",
+                    "type": "VARCHAR(50)",
+                    "description": "Employee first name"
+                },
+                {
+                    "name": "last_name",
+                    "type": "VARCHAR(50)",
+                    "description": "Employee last name"
+                },
+                {
+                    "name": "hire_date",
+                    "type": "DATE",
+                    "description": "Employment start date"
+                },
+                {
+                    "name": "department_id",
+                    "type": "INTEGER",
+                    "description": "Reference to department"
+                }
+            ]
+        },
+        {
+            "name": "departments",
+            "description": "Company department information",
+            "domain": "hr",
+            "columns": [
+                {
+                    "name": "department_id",
+                    "type": "INTEGER",
+                    "description": "Unique identifier for departments"
+                },
+                {
+                    "name": "name",
+                    "type": "VARCHAR(50)",
+                    "description": "Department name"
+                },
+                {
+                    "name": "manager_id",
+                    "type": "INTEGER",
+                    "description": "Reference to employee who manages department"
+                },
+                {
+                    "name": "location",
+                    "type": "VARCHAR(100)",
+                    "description": "Department physical location"
+                },
+                {
+                    "name": "budget",
+                    "type": "DECIMAL(12,2)",
+                    "description": "Annual department budget"
+                }
+            ]
+        },
+        {
+            "name": "payroll",
+            "description": "Employee salary and compensation records",
+            "domain": "hr",
+            "columns": [
+                {
+                    "name": "payroll_id",
+                    "type": "INTEGER",
+                    "description": "Unique identifier for payroll records"
+                },
+                {
+                    "name": "employee_id",
+                    "type": "INTEGER",
+                    "description": "Reference to employee"
+                },
+                {
+                    "name": "salary",
+                    "type": "DECIMAL(10,2)",
+                    "description": "Base salary amount"
+                },
+                {
+                    "name": "bonus",
+                    "type": "DECIMAL(10,2)",
+                    "description": "Additional bonus amount"
+                },
+                {
+                    "name": "pay_period",
+                    "type": "DATE",
+                    "description": "Pay period date"
+                }
+            ]
+        },
+        {
+            "name": "leave_requests",
+            "description": "Employee time off and leave tracking",
+            "domain": "hr",
+            "columns": [
+                {
+                    "name": "request_id",
+                    "type": "INTEGER",
+                    "description": "Unique identifier for leave requests"
+                },
+                {
+                    "name": "employee_id",
+                    "type": "INTEGER",
+                    "description": "Reference to employee"
+                },
+                {
+                    "name": "start_date",
+                    "type": "DATE",
+                    "description": "Leave start date"
+                },
+                {
+                    "name": "end_date",
+                    "type": "DATE",
+                    "description": "Leave end date"
+                },
+                {
+                    "name": "status",
+                    "type": "VARCHAR(20)",
+                    "description": "Request status (pending/approved/rejected)"
+                },
+                {
+                    "name": "type",
+                    "type": "VARCHAR(30)",
+                    "description": "Type of leave (vacation/sick/personal)"
+                }
+            ]
+        },
+        {
+            "name": "students",
+            "description": "Student enrollment and personal information",
+            "domain": "education",
+            "columns": [
+                {
+                    "name": "student_id",
+                    "type": "INTEGER",
+                    "description": "Unique identifier for students"
+                },
+                {
+                    "name": "first_name",
+                    "type": "VARCHAR(50)",
+                    "description": "Student first name"
+                },
+                {
+                    "name": "last_name",
+                    "type": "VARCHAR(50)",
+                    "description": "Student last name"
+                },
+                {
+                    "name": "enrollment_date",
+                    "type": "DATE",
+                    "description": "When student enrolled"
+                },
+                {
+                    "name": "major",
+                    "type": "VARCHAR(50)",
+                    "description": "Student's major field of study"
+                },
+                {
+                    "name": "status",
+                    "type": "VARCHAR(20)",
+                    "description": "Enrollment status (active/graduated/withdrawn)"
+                }
+            ]
+        },
+        {
+            "name": "courses",
+            "description": "Academic course information",
+            "domain": "education",
+            "columns": [
+                {
+                    "name": "course_id",
+                    "type": "INTEGER",
+                    "description": "Unique identifier for courses"
+                },
+                {
+                    "name": "code",
+                    "type": "VARCHAR(20)",
+                    "description": "Course code (e.g., CS101)"
+                },
+                {
+                    "name": "title",
+                    "type": "VARCHAR(100)",
+                    "description": "Course title"
+                },
+                {
+                    "name": "credits",
+                    "type": "INTEGER",
+                    "description": "Number of credits"
+                },
+                {
+                    "name": "department_id",
+                    "type": "INTEGER",
+                    "description": "Reference to academic department"
+                }
+            ]
+        },
+        {
+            "name": "enrollments",
+            "description": "Student course enrollment records",
+            "domain": "education",
+            "columns": [
+                {
+                    "name": "enrollment_id",
+                    "type": "INTEGER",
+                    "description": "Unique identifier for enrollments"
+                },
+                {
+                    "name": "student_id",
+                    "type": "INTEGER",
+                    "description": "Reference to student"
+                },
+                {
+                    "name": "course_id",
+                    "type": "INTEGER",
+                    "description": "Reference to course"
+                },
+                {
+                    "name": "semester",
+                    "type": "VARCHAR(20)",
+                    "description": "Academic semester"
+                },
+                {
+                    "name": "grade",
+                    "type": "VARCHAR(2)",
+                    "description": "Final grade received"
+                }
+            ]
+        },
+        {
+            "name": "patients",
+            "description": "Patient medical information",
+            "domain": "healthcare",
+            "columns": [
+                {
+                    "name": "patient_id",
+                    "type": "INTEGER",
+                    "description": "Unique identifier for patients"
+                },
+                {
+                    "name": "first_name",
+                    "type": "VARCHAR(50)",
+                    "description": "Patient first name"
+                },
+                {
+                    "name": "last_name",
+                    "type": "VARCHAR(50)",
+                    "description": "Patient last name"
+                },
+                {
+                    "name": "date_of_birth",
+                    "type": "DATE",
+                    "description": "Patient birth date"
+                },
+                {
+                    "name": "blood_type",
+                    "type": "VARCHAR(5)",
+                    "description": "Patient blood type"
+                },
+                {
+                    "name": "insurance_id",
+                    "type": "VARCHAR(50)",
+                    "description": "Insurance policy number"
+                }
+            ]
+        },
+        {
+            "name": "medical_records",
+            "description": "Patient medical history and records",
+            "domain": "healthcare",
+            "columns": [
+                {
+                    "name": "record_id",
+                    "type": "INTEGER",
+                    "description": "Unique identifier for medical records"
+                },
+                {
+                    "name": "patient_id",
+                    "type": "INTEGER",
+                    "description": "Reference to patient"
+                },
+                {
+                    "name": "diagnosis",
+                    "type": "TEXT",
+                    "description": "Medical diagnosis"
+                },
+                {
+                    "name": "treatment",
+                    "type": "TEXT",
+                    "description": "Prescribed treatment"
+                },
+                {
+                    "name": "visit_date",
+                    "type": "TIMESTAMP",
+                    "description": "Date of medical visit"
+                }
+            ]
+        },
+        {
+            "name": "bank_accounts",
+            "description": "Customer banking account information",
+            "domain": "financial",
+            "columns": [
+                {
+                    "name": "account_id",
+                    "type": "INTEGER",
+                    "description": "Unique identifier for accounts"
+                },
+                {
+                    "name": "customer_id",
+                    "type": "INTEGER",
+                    "description": "Reference to customer"
+                },
+                {
+                    "name": "account_type",
+                    "type": "VARCHAR(20)",
+                    "description": "Type of account (checking/savings)"
+                },
+                {
+                    "name": "balance",
+                    "type": "DECIMAL(12,2)",
+                    "description": "Current account balance"
+                },
+                {
+                    "name": "opened_date",
+                    "type": "DATE",
+                    "description": "When account was opened"
+                }
+            ]
+        },
+        {
+            "name": "transactions",
+            "description": "Banking transaction records",
+            "domain": "financial",
+            "columns": [
+                {
+                    "name": "transaction_id",
+                    "type": "INTEGER",
+                    "description": "Unique identifier for transactions"
+                },
+                {
+                    "name": "account_id",
+                    "type": "INTEGER",
+                    "description": "Reference to account"
+                },
+                {
+                    "name": "type",
+                    "type": "VARCHAR(20)",
+                    "description": "Transaction type (deposit/withdrawal)"
+                },
+                {
+                    "name": "amount",
+                    "type": "DECIMAL(12,2)",
+                    "description": "Transaction amount"
+                },
+                {
+                    "name": "timestamp",
+                    "type": "TIMESTAMP",
+                    "description": "When transaction occurred"
+                }
+            ]
+        },
+        {
+            "name": "social_users",
+            "description": "Social media user profiles",
+            "domain": "social_media",
+            "columns": [
+                {
+                    "name": "user_id",
+                    "type": "INTEGER",
+                    "description": "Unique identifier for users"
+                },
+                {
+                    "name": "username",
+                    "type": "VARCHAR(50)",
+                    "description": "User's display name"
+                },
+                {
+                    "name": "email",
+                    "type": "VARCHAR(100)",
+                    "description": "User's email address"
+                },
+                {
+                    "name": "join_date",
+                    "type": "TIMESTAMP",
+                    "description": "When user joined platform"
+                },
+                {
+                    "name": "status",
+                    "type": "VARCHAR(20)",
+                    "description": "Account status (active/suspended)"
+                }
+            ]
+        },
+        {
+            "name": "posts",
+            "description": "Social media post content",
+            "domain": "social_media",
+            "columns": [
+                {
+                    "name": "post_id",
+                    "type": "INTEGER",
+                    "description": "Unique identifier for posts"
+                },
+                {
+                    "name": "user_id",
+                    "type": "INTEGER",
+                    "description": "Reference to user who created post"
+                },
+                {
+                    "name": "content",
+                    "type": "TEXT",
+                    "description": "Post content text"
+                },
+                {
+                    "name": "created_at",
+                    "type": "TIMESTAMP",
+                    "description": "When post was created"
+                },
+                {
+                    "name": "likes_count",
+                    "type": "INTEGER",
+                    "description": "Number of likes received"
+                }
+            ]
+        },
+        {
+            "name": "comments",
+            "description": "Comments on social media posts",
+            "domain": "social_media",
+            "columns": [
+                {
+                    "name": "comment_id",
+                    "type": "INTEGER",
+                    "description": "Unique identifier for comments"
+                },
+                {
+                    "name": "post_id",
+                    "type": "INTEGER",
+                    "description": "Reference to post"
+                },
+                {
+                    "name": "user_id",
+                    "type": "INTEGER",
+                    "description": "Reference to user who commented"
+                },
+                {
+                    "name": "content",
+                    "type": "TEXT",
+                    "description": "Comment text content"
+                },
+                {
+                    "name": "created_at",
+                    "type": "TIMESTAMP",
+                    "description": "When comment was created"
+                }
+            ]
+        },
+        {
+            "name": "events",
+            "description": "Event scheduling and details",
+            "domain": "event_management",
+            "columns": [
+                {
+                    "name": "event_id",
+                    "type": "INTEGER",
+                    "description": "Unique identifier for events"
+                },
+                {
+                    "name": "title",
+                    "type": "VARCHAR(100)",
+                    "description": "Event title"
+                },
+                {
+                    "name": "description",
+                    "type": "TEXT",
+                    "description": "Event description"
+                },
+                {
+                    "name": "start_time",
+                    "type": "TIMESTAMP",
+                    "description": "Event start time"
+                },
+                {
+                    "name": "end_time",
+                    "type": "TIMESTAMP",
+                    "description": "Event end time"
+                },
+                {
+                    "name": "venue_id",
+                    "type": "INTEGER",
+                    "description": "Reference to venue"
+                }
+            ]
+        },
+        {
+            "name": "venues",
+            "description": "Event venue information",
+            "domain": "event_management",
+            "columns": [
+                {
+                    "name": "venue_id",
+                    "type": "INTEGER",
+                    "description": "Unique identifier for venues"
+                },
+                {
+                    "name": "name",
+                    "type": "VARCHAR(100)",
+                    "description": "Venue name"
+                },
+                {
+                    "name": "address",
+                    "type": "TEXT",
+                    "description": "Venue physical address"
+                },
+                {
+                    "name": "capacity",
+                    "type": "INTEGER",
+                    "description": "Maximum venue capacity"
+                },
+                {
+                    "name": "type",
+                    "type": "VARCHAR(50)",
+                    "description": "Venue type (conference/theater/stadium)"
+                }
+            ]
+        },
+        {
+            "name": "books",
+            "description": "Library book catalog information",
+            "domain": "library",
+            "columns": [
+                {
+                    "name": "book_id",
+                    "type": "INTEGER",
+                    "description": "Unique identifier for books"
+                },
+                {
+                    "name": "isbn",
+                    "type": "VARCHAR(13)",
+                    "description": "International Standard Book Number"
+                },
+                {
+                    "name": "title",
+                    "type": "VARCHAR(200)",
+                    "description": "Book title"
+                },
+                {
+                    "name": "author",
+                    "type": "VARCHAR(100)",
+                    "description": "Book author name"
+                },
+                {
+                    "name": "publisher",
+                    "type": "VARCHAR(100)",
+                    "description": "Book publisher"
+                },
+                {
+                    "name": "publication_year",
+                    "type": "INTEGER",
+                    "description": "Year of publication"
+                },
+                {
+                    "name": "category_id",
+                    "type": "INTEGER",
+                    "description": "Reference to book category"
+                }
+            ]
+        },
+        {
+            "name": "book_copies",
+            "description": "Individual copies of books in library",
+            "domain": "library",
+            "columns": [
+                {
+                    "name": "copy_id",
+                    "type": "INTEGER",
+                    "description": "Unique identifier for book copy"
+                },
+                {
+                    "name": "book_id",
+                    "type": "INTEGER",
+                    "description": "Reference to book"
+                },
+                {
+                    "name": "status",
+                    "type": "VARCHAR(20)",
+                    "description": "Copy status (available/borrowed/maintenance)"
+                },
+                {
+                    "name": "location",
+                    "type": "VARCHAR(50)",
+                    "description": "Physical location in library"
+                },
+                {
+                    "name": "acquisition_date",
+                    "type": "DATE",
+                    "description": "When copy was acquired"
+                }
+            ]
+        },
+        {
+            "name": "borrowings",
+            "description": "Book borrowing records",
+            "domain": "library",
+            "columns": [
+                {
+                    "name": "borrowing_id",
+                    "type": "INTEGER",
+                    "description": "Unique identifier for borrowing record"
+                },
+                {
+                    "name": "copy_id",
+                    "type": "INTEGER",
+                    "description": "Reference to book copy"
+                },
+                {
+                    "name": "member_id",
+                    "type": "INTEGER",
+                    "description": "Reference to library member"
+                },
+                {
+                    "name": "borrow_date",
+                    "type": "DATE",
+                    "description": "When book was borrowed"
+                },
+                {
+                    "name": "due_date",
+                    "type": "DATE",
+                    "description": "When book is due"
+                },
+                {
+                    "name": "return_date",
+                    "type": "DATE",
+                    "description": "When book was returned"
+                }
+            ]
+        },
+        {
+            "name": "properties",
+            "description": "Real estate property listings",
+            "domain": "real_estate",
+            "columns": [
+                {
+                    "name": "property_id",
+                    "type": "INTEGER",
+                    "description": "Unique identifier for properties"
+                },
+                {
+                    "name": "address",
+                    "type": "TEXT",
+                    "description": "Property address"
+                },
+                {
+                    "name": "type",
+                    "type": "VARCHAR(30)",
+                    "description": "Property type (house/apartment/commercial)"
+                },
+                {
+                    "name": "price",
+                    "type": "DECIMAL(12,2)",
+                    "description": "Listed price"
+                },
+                {
+                    "name": "bedrooms",
+                    "type": "INTEGER",
+                    "description": "Number of bedrooms"
+                },
+                {
+                    "name": "bathrooms",
+                    "type": "DECIMAL(3,1)",
+                    "description": "Number of bathrooms"
+                },
+                {
+                    "name": "square_feet",
+                    "type": "INTEGER",
+                    "description": "Property size in square feet"
+                },
+                {
+                    "name": "year_built",
+                    "type": "INTEGER",
+                    "description": "Year property was built"
+                }
+            ]
+        },
+        {
+            "name": "agents",
+            "description": "Real estate agent information",
+            "domain": "real_estate",
+            "columns": [
+                {
+                    "name": "agent_id",
+                    "type": "INTEGER",
+                    "description": "Unique identifier for agents"
+                },
+                {
+                    "name": "first_name",
+                    "type": "VARCHAR(50)",
+                    "description": "Agent first name"
+                },
+                {
+                    "name": "last_name",
+                    "type": "VARCHAR(50)",
+                    "description": "Agent last name"
+                },
+                {
+                    "name": "email",
+                    "type": "VARCHAR(100)",
+                    "description": "Agent email address"
+                },
+                {
+                    "name": "phone",
+                    "type": "VARCHAR(20)",
+                    "description": "Agent phone number"
+                },
+                {
+                    "name": "license_number",
+                    "type": "VARCHAR(50)",
+                    "description": "Real estate license number"
+                }
+            ]
+        },
+        {
+            "name": "listings",
+            "description": "Property listing details",
+            "domain": "real_estate",
+            "columns": [
+                {
+                    "name": "listing_id",
+                    "type": "INTEGER",
+                    "description": "Unique identifier for listings"
+                },
+                {
+                    "name": "property_id",
+                    "type": "INTEGER",
+                    "description": "Reference to property"
+                },
+                {
+                    "name": "agent_id",
+                    "type": "INTEGER",
+                    "description": "Reference to agent"
+                },
+                {
+                    "name": "list_date",
+                    "type": "DATE",
+                    "description": "When property was listed"
+                },
+                {
+                    "name": "status",
+                    "type": "VARCHAR(20)",
+                    "description": "Listing status (active/pending/sold)"
+                },
+                {
+                    "name": "description",
+                    "type": "TEXT",
+                    "description": "Detailed property description"
+                }
+            ]
+        },
+        {
+            "name": "destinations",
+            "description": "Tourist destination information",
+            "domain": "tourism",
+            "columns": [
+                {
+                    "name": "destination_id",
+                    "type": "INTEGER",
+                    "description": "Unique identifier for destinations"
+                },
+                {
+                    "name": "name",
+                    "type": "VARCHAR(100)",
+                    "description": "Destination name"
+                },
+                {
+                    "name": "city",
+                    "type": "VARCHAR(100)",
+                    "description": "City location"
+                },
+                {
+                    "name": "country",
+                    "type": "VARCHAR(100)",
+                    "description": "Country location"
+                },
+                {
+                    "name": "description",
+                    "type": "TEXT",
+                    "description": "Detailed destination description"
+                },
+                {
+                    "name": "category",
+                    "type": "VARCHAR(50)",
+                    "description": "Type of destination (beach/mountain/city/historical)"
+                }
+            ]
+        },
+        {
+            "name": "tours",
+            "description": "Guided tour package information",
+            "domain": "tourism",
+            "columns": [
+                {
+                    "name": "tour_id",
+                    "type": "INTEGER",
+                    "description": "Unique identifier for tours"
+                },
+                {
+                    "name": "name",
+                    "type": "VARCHAR(100)",
+                    "description": "Tour package name"
+                },
+                {
+                    "name": "destination_id",
+                    "type": "INTEGER",
+                    "description": "Reference to destination"
+                },
+                {
+                    "name": "duration_days",
+                    "type": "INTEGER",
+                    "description": "Tour duration in days"
+                },
+                {
+                    "name": "price",
+                    "type": "DECIMAL(10,2)",
+                    "description": "Tour price per person"
+                },
+                {
+                    "name": "max_participants",
+                    "type": "INTEGER",
+                    "description": "Maximum number of participants"
+                }
+            ]
+        },
+        {
+            "name": "bookings",
+            "description": "Tour booking records",
+            "domain": "tourism",
+            "columns": [
+                {
+                    "name": "booking_id",
+                    "type": "INTEGER",
+                    "description": "Unique identifier for bookings"
+                },
+                {
+                    "name": "tour_id",
+                    "type": "INTEGER",
+                    "description": "Reference to tour"
+                },
+                {
+                    "name": "customer_id",
+                    "type": "INTEGER",
+                    "description": "Reference to customer"
+                },
+                {
+                    "name": "booking_date",
+                    "type": "DATE",
+                    "description": "When booking was made"
+                },
+                {
+                    "name": "start_date",
+                    "type": "DATE",
+                    "description": "Tour start date"
+                },
+                {
+                    "name": "participants",
+                    "type": "INTEGER",
+                    "description": "Number of participants"
+                },
+                {
+                    "name": "total_amount",
+                    "type": "DECIMAL(10,2)",
+                    "description": "Total booking amount"
+                },
+                {
+                    "name": "status",
+                    "type": "VARCHAR(20)",
+                    "description": "Booking status (confirmed/cancelled/completed)"
+                }
+            ]
+        },
+        {
+            "name": "restaurants",
+            "description": "Restaurant establishment information",
+            "domain": "restaurant",
+            "columns": [
+                {
+                    "name": "restaurant_id",
+                    "type": "INTEGER",
+                    "description": "Unique identifier for restaurants"
+                },
+                {
+                    "name": "name",
+                    "type": "VARCHAR(100)",
+                    "description": "Restaurant name"
+                },
+                {
+                    "name": "cuisine_type",
+                    "type": "VARCHAR(50)",
+                    "description": "Type of cuisine (Italian/Chinese/Indian/etc)"
+                },
+                {
+                    "name": "address",
+                    "type": "TEXT",
+                    "description": "Restaurant location"
+                },
+                {
+                    "name": "phone",
+                    "type": "VARCHAR(20)",
+                    "description": "Contact number"
+                },
+                {
+                    "name": "rating",
+                    "type": "DECIMAL(2,1)",
+                    "description": "Average customer rating"
+                },
+                {
+                    "name": "price_range",
+                    "type": "VARCHAR(20)",
+                    "description": "Price category ($/$$/$$$/$$$$)"
+                }
+            ]
+        },
+        {
+            "name": "menu_items",
+            "description": "Restaurant menu dishes and items",
+            "domain": "restaurant",
+            "columns": [
+                {
+                    "name": "item_id",
+                    "type": "INTEGER",
+                    "description": "Unique identifier for menu items"
+                },
+                {
+                    "name": "restaurant_id",
+                    "type": "INTEGER",
+                    "description": "Reference to restaurant"
+                },
+                {
+                    "name": "name",
+                    "type": "VARCHAR(100)",
+                    "description": "Dish name"
+                },
+                {
+                    "name": "description",
+                    "type": "TEXT",
+                    "description": "Dish description and ingredients"
+                },
+                {
+                    "name": "price",
+                    "type": "DECIMAL(6,2)",
+                    "description": "Item price"
+                },
+                {
+                    "name": "category",
+                    "type": "VARCHAR(50)",
+                    "description": "Menu category (appetizer/main/dessert)"
+                },
+                {
+                    "name": "is_vegetarian",
+                    "type": "BOOLEAN",
+                    "description": "Whether item is vegetarian"
+                },
+                {
+                    "name": "spice_level",
+                    "type": "INTEGER",
+                    "description": "Spiciness level (1-5)"
+                }
+            ]
+        },
+        {
+            "name": "clinical_trials",
+            "description": "Medical research trial information",
+            "domain": "healthcare_research",
+            "columns": [
+                {
+                    "name": "trial_id",
+                    "type": "INTEGER",
+                    "description": "Unique identifier for clinical trials"
+                },
+                {
+                    "name": "title",
+                    "type": "VARCHAR(200)",
+                    "description": "Trial study title"
+                },
+                {
+                    "name": "description",
+                    "type": "TEXT",
+                    "description": "Detailed trial description"
+                },
+                {
+                    "name": "start_date",
+                    "type": "DATE",
+                    "description": "Trial start date"
+                },
+                {
+                    "name": "end_date",
+                    "type": "DATE",
+                    "description": "Expected completion date"
+                },
+                {
+                    "name": "phase",
+                    "type": "INTEGER",
+                    "description": "Clinical trial phase (1-4)"
+                },
+                {
+                    "name": "status",
+                    "type": "VARCHAR(50)",
+                    "description": "Trial status (recruiting/ongoing/completed)"
+                }
+            ]
+        },
+        {
+            "name": "trial_participants",
+            "description": "Clinical trial participant records",
+            "domain": "healthcare_research",
+            "columns": [
+                {
+                    "name": "participant_id",
+                    "type": "INTEGER",
+                    "description": "Unique identifier for participants"
+                },
+                {
+                    "name": "trial_id",
+                    "type": "INTEGER",
+                    "description": "Reference to clinical trial"
+                },
+                {
+                    "name": "enrollment_date",
+                    "type": "DATE",
+                    "description": "When participant joined trial"
+                },
+                {
+                    "name": "age",
+                    "type": "INTEGER",
+                    "description": "Participant age"
+                },
+                {
+                    "name": "gender",
+                    "type": "VARCHAR(10)",
+                    "description": "Participant gender"
+                },
+                {
+                    "name": "group_type",
+                    "type": "VARCHAR(20)",
+                    "description": "Control/Treatment group assignment"
+                }
+            ]
+        },
+        {
+            "name": "teams",
+            "description": "Sports team information",
+            "domain": "sports",
+            "columns": [
+                {
+                    "name": "team_id",
+                    "type": "INTEGER",
+                    "description": "Unique identifier for teams"
+                },
+                {
+                    "name": "name",
+                    "type": "VARCHAR(100)",
+                    "description": "Team name"
+                },
+                {
+                    "name": "city",
+                    "type": "VARCHAR(100)",
+                    "description": "Home city"
+                },
+                {
+                    "name": "league",
+                    "type": "VARCHAR(50)",
+                    "description": "League/division name"
+                },
+                {
+                    "name": "founded_year",
+                    "type": "INTEGER",
+                    "description": "Year team was established"
+                },
+                {
+                    "name": "coach",
+                    "type": "VARCHAR(100)",
+                    "description": "Head coach name"
+                }
+            ]
+        },
+        {
+            "name": "matches",
+            "description": "Sports match records and results",
+            "domain": "sports",
+            "columns": [
+                {
+                    "name": "match_id",
+                    "type": "INTEGER",
+                    "description": "Unique identifier for matches"
+                },
+                {
+                    "name": "home_team_id",
+                    "type": "INTEGER",
+                    "description": "Reference to home team"
+                },
+                {
+                    "name": "away_team_id",
+                    "type": "INTEGER",
+                    "description": "Reference to away team"
+                },
+                {
+                    "name": "match_date",
+                    "type": "TIMESTAMP",
+                    "description": "When match was played"
+                },
+                {
+                    "name": "home_score",
+                    "type": "INTEGER",
+                    "description": "Home team score"
+                },
+                {
+                    "name": "away_score",
+                    "type": "INTEGER",
+                    "description": "Away team score"
+                },
+                {
+                    "name": "venue",
+                    "type": "VARCHAR(100)",
+                    "description": "Match venue/stadium"
+                }
+            ]
+        },
+        {
+            "name": "research_papers",
+            "description": "Academic research publication information",
+            "domain": "academic_research",
+            "columns": [
+                {
+                    "name": "paper_id",
+                    "type": "INTEGER",
+                    "description": "Unique identifier for papers"
+                },
+                {
+                    "name": "title",
+                    "type": "VARCHAR(300)",
+                    "description": "Paper title"
+                },
+                {
+                    "name": "abstract",
+                    "type": "TEXT",
+                    "description": "Paper abstract"
+                },
+                {
+                    "name": "publication_date",
+                    "type": "DATE",
+                    "description": "Date of publication"
+                },
+                {
+                    "name": "journal",
+                    "type": "VARCHAR(200)",
+                    "description": "Journal name"
+                },
+                {
+                    "name": "citations",
+                    "type": "INTEGER",
+                    "description": "Number of citations received"
+                }
+            ]
+        },
+        {
+            "name": "researchers",
+            "description": "Academic researcher profiles",
+            "domain": "academic_research",
+            "columns": [
+                {
+                    "name": "researcher_id",
+                    "type": "INTEGER",
+                    "description": "Unique identifier for researchers"
+                },
+                {
+                    "name": "name",
+                    "type": "VARCHAR(100)",
+                    "description": "Researcher full name"
+                },
+                {
+                    "name": "institution",
+                    "type": "VARCHAR(200)",
+                    "description": "Affiliated institution"
+                },
+                {
+                    "name": "department",
+                    "type": "VARCHAR(100)",
+                    "description": "Academic department"
+                },
+                {
+                    "name": "h_index",
+                    "type": "INTEGER",
+                    "description": "H-index score"
+                },
+                {
+                    "name": "research_areas",
+                    "type": "TEXT",
+                    "description": "Areas of research expertise"
+                }
+            ]
+        },
+        {
+            "name": "products",
+            "description": "Manufacturing product catalog",
+            "domain": "manufacturing",
+            "columns": [
+                {
+                    "name": "product_id",
+                    "type": "INTEGER",
+                    "description": "Unique identifier for products"
+                },
+                {
+                    "name": "name",
+                    "type": "VARCHAR(100)",
+                    "description": "Product name"
+                },
+                {
+                    "name": "category",
+                    "type": "VARCHAR(50)",
+                    "description": "Product category"
+                },
+                {
+                    "name": "specifications",
+                    "type": "TEXT",
+                    "description": "Technical specifications"
+                },
+                {
+                    "name": "unit_cost",
+                    "type": "DECIMAL(10,2)",
+                    "description": "Manufacturing cost per unit"
+                },
+                {
+                    "name": "lead_time_days",
+                    "type": "INTEGER",
+                    "description": "Production lead time in days"
+                }
+            ]
+        },
+        {
+            "name": "production_batches",
+            "description": "Manufacturing production batch records",
+            "domain": "manufacturing",
+            "columns": [
+                {
+                    "name": "batch_id",
+                    "type": "INTEGER",
+                    "description": "Unique identifier for production batches"
+                },
+                {
+                    "name": "product_id",
+                    "type": "INTEGER",
+                    "description": "Reference to product"
+                },
+                {
+                    "name": "start_time",
+                    "type": "TIMESTAMP",
+                    "description": "Production start time"
+                },
+                {
+                    "name": "end_time",
+                    "type": "TIMESTAMP",
+                    "description": "Production end time"
+                },
+                {
+                    "name": "quantity",
+                    "type": "INTEGER",
+                    "description": "Number of units produced"
+                },
+                {
+                    "name": "defect_rate",
+                    "type": "DECIMAL(4,2)",
+                    "description": "Percentage of defective units"
+                }
+            ]
+        },
+        {
+            "name": "weather_stations",
+            "description": "Weather monitoring station information",
+            "domain": "weather",
+            "columns": [
+                {
+                    "name": "station_id",
+                    "type": "INTEGER",
+                    "description": "Unique identifier for weather stations"
+                },
+                {
+                    "name": "location",
+                    "type": "VARCHAR(100)",
+                    "description": "Station location name"
+                },
+                {
+                    "name": "latitude",
+                    "type": "DECIMAL(9,6)",
+                    "description": "Geographic latitude"
+                },
+                {
+                    "name": "longitude",
+                    "type": "DECIMAL(9,6)",
+                    "description": "Geographic longitude"
+                },
+                {
+                    "name": "elevation",
+                    "type": "DECIMAL(6,2)",
+                    "description": "Elevation above sea level in meters"
+                },
+                {
+                    "name": "installation_date",
+                    "type": "DATE",
+                    "description": "When station was installed"
+                }
+            ]
+        },
+        {
+            "name": "weather_readings",
+            "description": "Weather measurement data",
+            "domain": "weather",
+            "columns": [
+                {
+                    "name": "reading_id",
+                    "type": "INTEGER",
+                    "description": "Unique identifier for readings"
+                },
+                {
+                    "name": "station_id",
+                    "type": "INTEGER",
+                    "description": "Reference to weather station"
+                },
+                {
+                    "name": "timestamp",
+                    "type": "TIMESTAMP",
+                    "description": "Time of measurement"
+                },
+                {
+                    "name": "temperature",
+                    "type": "DECIMAL(4,1)",
+                    "description": "Temperature in Celsius"
+                },
+                {
+                    "name": "humidity",
+                    "type": "DECIMAL(4,1)",
+                    "description": "Relative humidity percentage"
+                },
+                {
+                    "name": "pressure",
+                    "type": "DECIMAL(6,1)",
+                    "description": "Atmospheric pressure in hPa"
+                },
+                {
+                    "name": "wind_speed",
+                    "type": "DECIMAL(4,1)",
+                    "description": "Wind speed in km/h"
+                },
+                {
+                    "name": "precipitation",
+                    "type": "DECIMAL(5,2)",
+                    "description": "Precipitation amount in mm"
+                }
+            ]
+        }
+    ]
+}
