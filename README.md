@@ -5,8 +5,10 @@ A repository dedicated to exploring and implementing Deep Learning and AI concep
 ## Table of Contents
 - [Project Structure](#project-structure)
 - [Projects](#projects)
-  - [Sentence Similarity Analysis](#1-sentence-similarity-analysis)
-  - [Sentence Embedding Visualization](#2-sentence-embedding-visualization)
+  - Encoders
+    - [Sentence Similarity Analysis](#1-sentence-similarity-analysis)
+    - [Sentence Embedding Visualization](#2-sentence-embedding-visualization)
+    - [Contextual Clustering](#3-contextual-clustering)
 - [Getting Started](#getting-started)
 - [Future Goals](#future-goals)
 - [Contributing](#contributing)
@@ -42,6 +44,8 @@ This project implements semantic similarity comparison between sentences using t
 This project demonstrates semantic similarity analysis and visualization of text embeddings using state-of-the-art transformer models.
 
 ![3D Visualization of Question Embeddings](./Encoders/Embedding%20Viz/image.png)
+
+### 3. Contextual Clustering
 
 #### Features
 - Uses SentenceTransformer with 'paraphrase-mpnet-base-v2' model for generating embeddings
