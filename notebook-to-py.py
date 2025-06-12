@@ -1,6 +1,6 @@
 import sys,json
 
-f = open('./langgraph/resume fit/ResumeFit.ipynb', 'r') #input.ipynb
+f = open('./langgraph/Basics/ConditionalAgentsExercise.ipynb', 'r') #input.ipynb
 j = json.load(f)
 of = open('output.py', 'w') #output.py
 if j["nbformat"] >=4:
