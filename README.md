@@ -9,6 +9,10 @@ A repository dedicated to exploring and implementing Deep Learning and AI concep
     - [Sentence Similarity Analysis](#1-sentence-similarity-analysis)
     - [Sentence Embedding Visualization](#2-sentence-embedding-visualization)
     - [Contextual Clustering](#3-contextual-clustering)
+  - langgraph
+    - [Basics](#4-basics-of-langgraph)
+    - [resume fit](#5-resume-analysis)
+    - [text analysis](#6-text-analysis)
 - [Getting Started](#getting-started)
 - [Future Goals](#future-goals)
 - [Contributing](#contributing)
@@ -46,6 +50,14 @@ This project demonstrates semantic similarity analysis and visualization of text
 ![3D Visualization of Question Embeddings](./Encoders/Embedding%20Viz/image.png)
 
 ### 3. Contextual Clustering
+
+### 4. Basics of langgraph
+
+### 5. Resume Analysis
+
+### 6. Text Analysis
+
+
 
 #### Features
 - Uses SentenceTransformer with 'paraphrase-mpnet-base-v2' model for generating embeddings
