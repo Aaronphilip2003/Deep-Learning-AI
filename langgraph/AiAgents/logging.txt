@@ -1,0 +1,23 @@
+Human: Hi
+AI: It's nice to meet you. Is there something I can help you with or would you like to chat?
+Human: My name is Aaron
+AI: Nice to meet you, Aaron. It's great to have you here. How's your day going so far?
+Human: What is the population of New York
+AI: The population of New York City is approximately 8.8 million people, according to the 2020 United States Census. However, if you're referring to the state of New York, the population is around 20.2 million people.
+
+Here's a breakdown:
+
+* New York City: 8,804,190 (2020 census)
+* New York State: 20,201,203 (2020 census)
+
+Please note that these numbers may have changed slightly since the last census, but they should give you a general idea of the population.
+Human: Where was Steve Jobs born?
+AI: Steve Jobs was born in San Francisco, California, on February 24, 1955. However, he was adopted by Paul and Clara Jobs, and he grew up in Mountain View, California, which is in the heart of Silicon Valley.
+Human: what are the questions i asked you?
+AI: You've asked me the following questions so far:
+
+1. A greeting ("Hi")
+2. Introduced yourself ("My name is Aaron")
+3. Asked about the population of New York
+4. Asked about the birthplace of Steve Jobs
+5. Asked me to recall the questions you've asked me (this one)
