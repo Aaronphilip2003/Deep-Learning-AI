@@ -18,7 +18,22 @@ def add(a: int, b: int):
     """This is an addition function that adds 2 numbers together"""
     return a+b
 
-tools = [add]
+@tool
+def subtract(a: int, b: int):
+    """This is a subtraction function that subtracts two numbers"""
+    return a-b
+
+@tool
+def product(a: int,b: int):
+    """This function multiplies two numbers"""
+    return a*b
+
+@tool
+def divide(a:int, b: int):
+    """This function divides two numbers provided that the divisor is not 0"""
+    return a/b
+
+tools = [add, subtract, product, divide]
 
 model = ChatGroq(
     temperature=0,
@@ -64,5 +79,5 @@ def print_stream(stream) :
         else:
             message.pretty_print()
 
-inputs = {"messages":[("user","Add 3 and 4")]}
+inputs = {"messages":[("user","Add 3 and 4, after that add 3 to that result and then subtract 9 from that then multiply it by 100 and divide it by 2 ")]}
 print_stream(app.stream(inputs,stream_mode="values"))
