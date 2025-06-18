@@ -3,6 +3,7 @@
 A repository dedicated to exploring and implementing Deep Learning and AI concepts with practical applications.
 
 ## Table of Contents
+- [AI Roadmap](#ai-roadmap)
 - [Project Structure](#project-structure)
 - [Projects](#projects)
   - Encoders
@@ -17,6 +18,12 @@ A repository dedicated to exploring and implementing Deep Learning and AI concep
 - [Future Goals](#future-goals)
 - [Contributing](#contributing)
 - [License](#license)
+
+## AI Roadmap
+
+1. [Neural Networks and Deep Learning](https://youtube.com/playlist?list=PLtBw6njQRU-rwp5__7C0oIVt26ZgjG9NI&si=PeV7gBF7SKNPBWpT) (Videos 1 - 6)
+2. [Langgraph](https://www.youtube.com/watch?v=jGg_1h0qzaM&ab_channel=freeCodeCamp.org)
+3. [Transformers and Attention](https://youtu.be/wjZofJX0v4M?si=j4KB1PRkI451d7dE)
 
 ## Project Structure
 
