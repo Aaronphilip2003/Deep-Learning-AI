@@ -72,14 +72,12 @@ def our_agent(state: AgentState) -> AgentState:
     if not state["messages"]:
         user_input = "I'm ready to help you update a document. What would you like to create?"
         user_message = HumanMessage(content=user_input)
-
     else:
         user_input = input("\nWhat would you like to do with the document? ")
         print(f"\n👤 USER: {user_input}")
         user_message = HumanMessage(content=user_input)
 
     all_messages = [system_prompt] + list(state["messages"]) + [user_message]
-
     response = model.invoke(all_messages)
 
     print(f"\n🤖 AI: {response.content}")
@@ -97,14 +95,20 @@ def should_continue(state: AgentState) -> str:
     if not messages:
         return "continue"
     
-    # This looks for the most recent tool message....
-    for message in reversed(messages):
-        # ... and checks if this is a ToolMessage resulting from save
-        if (isinstance(message, ToolMessage) and 
-            "saved" in message.content.lower() and
-            "document" in message.content.lower()):
-            return "end" # goes to the end edge which leads to the endpoint
-        
+    # Check the last message for tool_calls
+    last_message = messages[-1]
+    
+    # If the last message has tool_calls, continue to tools
+    if hasattr(last_message, 'tool_calls') and last_message.tool_calls:
+        return "continue"
+    
+    # If the last message is a ToolMessage and it's about saving, end
+    if (isinstance(last_message, ToolMessage) and 
+        "saved" in last_message.content.lower() and
+        "document" in last_message.content.lower()):
+        return "end"
+    
+    # Otherwise, continue
     return "continue"
 
 def print_messages(messages):
