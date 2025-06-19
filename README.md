@@ -91,6 +91,8 @@ From the sample output:
 
 ## Future Goals
 
+1. [Train your own LLM](https://youtu.be/9Ge0sMm65jo?si=i50q3HW0K-g4NOfp)
+
 ## Contributing
 
 ## License
