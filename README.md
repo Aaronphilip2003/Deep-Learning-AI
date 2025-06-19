@@ -11,9 +11,10 @@ A repository dedicated to exploring and implementing Deep Learning and AI concep
     - [Sentence Embedding Visualization](#2-sentence-embedding-visualization)
     - [Contextual Clustering](#3-contextual-clustering)
   - langgraph
-    - [Basics](#4-basics-of-langgraph)
-    - [resume fit](#5-resume-analysis)
-    - [text analysis](#6-text-analysis)
+    - [AI Agents](#4-ai-agents)
+    - [Basic Agents](#5-basic-agents)
+    - [Resume Fitting](#6-resume-fitting)
+    - [Text Analysis](#7-text-analysis)
 - [Getting Started](#getting-started)
 - [Future Goals](#future-goals)
 - [Contributing](#contributing)
@@ -58,11 +59,13 @@ This project demonstrates semantic similarity analysis and visualization of text
 
 ### 3. Contextual Clustering
 
-### 4. Basics of langgraph
+### 4. AI Agents
 
-### 5. Resume Analysis
+### 5. Basic Agents
 
-### 6. Text Analysis
+### 6. Resume Analysis
+
+### 7. Text Analysis
 
 
 
