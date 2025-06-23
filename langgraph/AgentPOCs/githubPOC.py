@@ -9,7 +9,7 @@ GITHUB_TOKEN = os.getenv("GITHUB_TOKEN")
 USERNAME = os.getenv("USERNAME")
 
 # Get the date range
-since_date = (datetime.utcnow() - timedelta(days=100)).isoformat()
+since_date = (datetime.utcnow() - timedelta(days=10)).isoformat()
 
 headers = {
     "Authorization": f"token {GITHUB_TOKEN}",

@@ -6,6 +6,9 @@ import plotly.express as px
 import plotly.graph_objects as go
 import numpy as np
 from sklearn.decomposition import PCA
+import plotly.io as pio
+pio.renderers.default = 'browser'
+os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 json_path = os.path.join(current_dir, 'tables.json')
