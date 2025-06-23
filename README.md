@@ -87,7 +87,8 @@ From the sample output:
 - Dimensionality reduction using scikit-learn's MDS
 - Dataset: Quora Question Pairs
 
-## Getting Started
+## Completed Projects
+1. [Langgraph][https://www.youtube.com/watch?v=jGg_1h0qzaM&ab_channel=freeCodeCamp.org]
 
 ## Future Goals
 
