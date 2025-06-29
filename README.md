@@ -4,8 +4,8 @@ A repository dedicated to exploring and implementing Deep Learning and AI concep
 
 ## Table of Contents
 - [AI Roadmap](#ai-roadmap)
-- [Project Structure](#project-structure)
 - [Projects](#projects)
+- [Project Content](#project-content)
   - Encoders
     - [Sentence Similarity Analysis](#1-sentence-similarity-analysis)
     - [Sentence Embedding Visualization](#2-sentence-embedding-visualization)
@@ -26,7 +26,7 @@ A repository dedicated to exploring and implementing Deep Learning and AI concep
 2. [Langgraph](https://www.youtube.com/watch?v=jGg_1h0qzaM&ab_channel=freeCodeCamp.org)
 3. [Transformers and Attention](https://youtu.be/wjZofJX0v4M?si=j4KB1PRkI451d7dE)
 
-## Project Structure
+## Project Content
 
 ### 1. Sentence Similarity Analysis
 
