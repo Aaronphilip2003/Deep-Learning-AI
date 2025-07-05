@@ -90,6 +90,10 @@ A repository dedicated to exploring and implementing Deep Learning and AI concep
 3. [Transformers and Attention](https://youtu.be/wjZofJX0v4M?si=j4KB1PRkI451d7dE)
 
 ## Theory
+![Embeddings](./Transformers/transformers.png)
+
+Experiment taken from the 3B1B Transformers video.
+Experiment shows that in the embedding space, similar words are close to each other, yes and it also shows that vector addition and subtraction also have semantic meaning in vector space.
 
 ## Project Content
 
